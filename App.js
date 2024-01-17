@@ -1,9 +1,10 @@
-import { View, TextInput, Button, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, TextInput, Button, Text, StyleSheet, FlatList } from 'react-native';
 import { useState } from 'react';
+
 
 export default function App() {
 
-  //declaramos el hook de estado de componente "newGoal"
+  // declaramos el hook de estado de componente "newGoal"
   const [newGoal, setNewGoal] = useState("");
   const [myGoals, setMyGoals] = useState([]);
 
@@ -18,22 +19,28 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
-        <TextInput placeholder='Input your goal'
+        <TextInput
+          onChangeText={textChangeHandler}
           style={styles.textInput}
-          onChangeText={textChangeHandler} />
-        <Button title='Add goal'
-          onPress={addGoalHandler} />
+          placeholder='Input your Goal!!'
+        />
+        <Button
+          title='Add Goal'
+          onPress={addGoalHandler}
+        />
       </View>
       <View style={styles.goalsContainer}>
-        <ScrollView>
-          {myGoals.map((goal, i) => {
-            return (
-              <View style={styles.goalItem}
-                key={i}>
-                <Text style={styles.goalText}>{goal}</Text>
-              </View>
-            )
-          })}</ScrollView>
+
+        <FlatList
+          data={myGoals}
+          renderItem={(dataItem) => (
+            <View style={styles.goalItem} key={dataItem.item}>
+              <Text style={styles.goalText}>{dataItem.item}</Text>
+            </View>
+          )
+          }
+        />
+
       </View>
     </View>
   );
