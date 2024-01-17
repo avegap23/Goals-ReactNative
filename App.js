@@ -5,10 +5,14 @@ export default function App() {
 
   //declaramos el hook de estado de componente "newGoal"
   const [newGoal, setNewGoal] = useState("");
+  const [myGoals, setMyGoals] = useState([]);
 
   function textChangeHandler(enteredText) {
     setNewGoal(enteredText);
-    console.log(newGoal);
+  }
+
+  function addGoalHandler() {
+    setMyGoals(myCurrentGoals => [...myCurrentGoals, newGoal])
   }
 
   return (
@@ -17,10 +21,17 @@ export default function App() {
         <TextInput placeholder='Input your goal'
           style={styles.textInput}
           onChangeText={textChangeHandler} />
-        <Button title='Add goal' />
+        <Button title='Add goal'
+          onPress={addGoalHandler} />
       </View>
       <View style={styles.goalsContainer}>
-        <Text>Your list of goals...</Text>
+        {myGoals.map(goal => {
+          return (
+            <View key={goal}>
+              <Text>{goal}</Text>
+            </View>
+          )
+        })}
       </View>
     </View>
   );
