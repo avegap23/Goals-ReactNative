@@ -18,6 +18,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+
       <View style={styles.inputContainer}>
         <TextInput
           onChangeText={textChangeHandler}
@@ -29,6 +30,7 @@ export default function App() {
           onPress={addGoalHandler}
         />
       </View>
+
       <View style={styles.goalsContainer}>
 
         <FlatList
@@ -42,6 +44,7 @@ export default function App() {
         />
 
       </View>
+
     </View>
   );
 }
