@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import { useState } from 'react';
 import GoalInput from './components/GoalInput';
+import GoalItem from './components/GoalItem';
 
 
 export default function App() {
@@ -24,9 +25,7 @@ export default function App() {
         <FlatList
           data={myGoals}
           renderItem={(dataItem) => (
-            <View style={styles.goalItem} key={dataItem.item.id}>
-              <Text style={styles.goalText}>{dataItem.item.text}</Text>
-            </View>
+            <GoalItem key={dataItem.item.id} goal={dataItem.item} />
           )}
         />
       </View>
@@ -43,14 +42,5 @@ const styles = new StyleSheet.create({
   },
   goalsContainer: {
     flex: 5
-  },
-  goalItem: {
-    padding: 20,
-    backgroundColor: "#0096f2",
-    marginBottom: 10,
-    borderRadius: 12,
-  },
-  goalText: {
-    color: "white"
   }
 })
