@@ -1,10 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native'
+import { View, TextInput, Button, StyleSheet, Modal } from 'react-native'
 
-export default function GoalInput({ onNewGoal }) {
+export default function GoalInput({ onNewGoal, visible, onCancel }) {
 
-    // declaramos el hook de estado de componente "newGoal"
     const [newGoal, setNewGoal] = useState("");
 
     function textChangeHandler(enteredText) {
@@ -18,26 +17,38 @@ export default function GoalInput({ onNewGoal }) {
     }
 
     return (
-        <View style={styles.inputContainer}>
-            <TextInput
-                onChangeText={textChangeHandler}
-                style={styles.textInput}
-                value={newGoal}
-                placeholder='Input your goal...'
-            />
-            <Button
-                title='Add Goal'
-                onPress={onPressHandler}
-            />
-        </View>
+        <Modal visible={visible} animationType='slide'>
+            <View style={styles.inputContainer}>
+                <TextInput
+                    onChangeText={textChangeHandler}
+                    style={styles.textInput}
+                    value={newGoal}
+                    placeholder='Input your goal...'
+                />
+                <View style={styles.buttonContainer}>
+                    <View style={styles.button}>
+                        <Button
+                            title='Cancel'
+                            onPress={onCancel}
+                        />
+                    </View>
+                    <View style={styles.button}>
+                        <Button
+                            title='Add Goal'
+                            onPress={onPressHandler}
+                        />
+                    </View>
+                </View>
+            </View>
+        </Modal>
     )
 }
 
 const styles = new StyleSheet.create({
     inputContainer: {
         flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        flexDirection: 'column',
+        justifyContent: 'center',
         marginBottom: 20,
         borderBottomWidth: 1,
         borderBottomColor: '#CCCCCC',
@@ -46,8 +57,16 @@ const styles = new StyleSheet.create({
     textInput: {
         borderWidth: 1,
         borderColor: '#CCCCCC',
-        width: "70%",
+        width: "80%",
         borderBottomWidth: 1,
         padding: 7
+    },
+    buttonContainer: {
+        flexDirection: 'row',
+        marginTop: 20,
+        justifyContent: 'space-between',
+    },
+    button: {
+        width: '40%'
     }
 })
