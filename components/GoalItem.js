@@ -19,7 +19,7 @@ export default function GoalItem({ goal, onDeleteGoal }) {
 const styles = new StyleSheet.create({
     goalItem: {
         padding: 20,
-        backgroundColor: "#0096f2",
+        backgroundColor: '#b596dc',
         marginBottom: 10,
         borderRadius: 12,
     },

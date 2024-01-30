@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, Modal } from 'react-native'
+import { View, TextInput, Button, StyleSheet, Modal, Image } from 'react-native'
 
 export default function GoalInput({ onNewGoal, visible, onCancel }) {
 
@@ -19,6 +19,7 @@ export default function GoalInput({ onNewGoal, visible, onCancel }) {
     return (
         <Modal visible={visible} animationType='slide'>
             <View style={styles.inputContainer}>
+                <Image source={require("../assets/img/goal.png")} style={styles.goalImg} />
                 <TextInput
                     onChangeText={textChangeHandler}
                     style={styles.textInput}
@@ -28,7 +29,7 @@ export default function GoalInput({ onNewGoal, visible, onCancel }) {
                 <View style={styles.buttonContainer}>
                     <View style={styles.button}>
                         <Button
-                            title='Cancel'
+                            title='Back'
                             onPress={onCancel}
                         />
                     </View>
@@ -45,6 +46,9 @@ export default function GoalInput({ onNewGoal, visible, onCancel }) {
 }
 
 const styles = new StyleSheet.create({
+    modal: {
+
+    },
     inputContainer: {
         flex: 1,
         flexDirection: 'column',
@@ -52,21 +56,31 @@ const styles = new StyleSheet.create({
         marginBottom: 20,
         borderBottomWidth: 1,
         borderBottomColor: '#CCCCCC',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#311b6b'
     },
     textInput: {
         borderWidth: 1,
-        borderColor: '#CCCCCC',
+        borderColor: '#e4d0ff',
+        backgroundColor: '#e4d0ff',
         width: "80%",
         borderBottomWidth: 1,
-        padding: 7
+        padding: 15,
+        borderRadius: 10
     },
     buttonContainer: {
         flexDirection: 'row',
         marginTop: 20,
         justifyContent: 'space-between',
+        width: '80%'
     },
     button: {
-        width: '40%'
+        width: '40%',
+        margin: 10
+    },
+    goalImg: {
+        width: 120,
+        height: 100,
+        marginBottom: 50
     }
 })
