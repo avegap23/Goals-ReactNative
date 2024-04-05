@@ -1,8 +1,6 @@
 A simple app we made at class as our first approach to React Native.
-It's a "TODO list" app that let you input your own tasks _(or goals, I don't know why I called them goals instead of tasks)_ and they will appear in the main main screen. To delete a task, just simply click on it.
 
-## 📋 TODO
-- [ ] Finish commenting the code properly
+It's a "TODO list" app that let you input your own tasks _(or goals, I don't know why I called them goals instead of tasks)_ and they will appear in the main main screen. To delete a task, just simply click on it.
 
 # 🛠️ Building the project
 **_⚠️ You will need Node.js in your machine. If you don't have it yet, you can get the installer [here](https://nodejs.org/en)._**
@@ -34,3 +32,7 @@ Expo Go will now install into your device. If you had it already installed, Expo
 The app will finally start building and it will open automatically.
 
 **_NOTE: Remember you can press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop Expo server and return to Shell. This will, however, disconnect Expo Go and the app will stop updating dynamically when changing the code._**
+
+# 📋 TODO
+- [ ] Finishing commenting the code properly
+- [ ] Overall reviewing the code in case there are bugs or if I could make it more simple
