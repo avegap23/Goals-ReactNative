@@ -74,12 +74,12 @@ const styles = new StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: '#311b6b'
   },
+  addNewGoal: {
+    marginHorizontal: 80,
+    marginTop: 40
+  },
   goalsContainer: {
     flex: 5,
     marginTop: 20
-  },
-  addNewGoal: {
-    marginHorizontal: 80,
-    marginTop: 15
   }
 })
