@@ -32,7 +32,3 @@ Expo Go will now install into your device. If you had it already installed, Expo
 The app will finally start building and it will open automatically.
 
 **_NOTE: Remember you can press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop Expo server and return to Shell. This will, however, disconnect Expo Go and the app will stop updating dynamically when changing the code._**
-
-# 📋 TODO
-- [ ] Finishing commenting the code properly
-- [ ] Overall reviewing the code in case there are bugs or if I could make it more simple
